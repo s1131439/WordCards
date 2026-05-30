@@ -40,6 +40,7 @@ namespace WordCards
             txtWord.Text = word.Word;
             txtPhonogram.Text = word.Phonogram;
             txtExplain.Text = word.Explain;
+
         }
 
         ///<summary>
@@ -89,6 +90,8 @@ namespace WordCards
                 ShowWord(_WordList[idx]);
                 // 播放單字的發音
                 PlayWord(_WordList[idx]);
+
+                UpdateProgress();
             }
         }
 
@@ -222,6 +225,36 @@ namespace WordCards
 
                 // 儲存單字
                 _WordList.SaveToFile(strWordFile);
+            }
+        }
+
+        private void UpdateProgress()
+        {
+            int current = lstWordList.SelectedIndex + 1;
+
+            int width = _WordList.Count.ToString().Length;
+
+            tsslMessage.Text = $"進度：{current.ToString().PadLeft(width)}/{_WordList.Count}";
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            string keyword = txtSearch.Text.Trim();
+
+            if (keyword.Length == 0)
+                return;
+
+            for (int i = 0; i < _WordList.Count; i++)
+            {
+                if (_WordList[i].Word
+                        .ToLower()
+                        .StartsWith(keyword.ToLower()))
+                {
+                    lstWordList.SelectedIndex = i;
+                    ShowWord(_WordList[i]);
+                    UpdateProgress();
+                    break;
+                }
             }
         }
     }

@@ -12,6 +12,9 @@ namespace WordCards
         public string Phonogram { get; set; }
         public string SoundPath { get; set; }
         public string Explain { get; set; }
+
+        public bool IsFavorite { get; set; } = false;
+
         /// <summary>
         /// 建構子，從 TSV 字串建立 WordItem物件
         /// </summary>

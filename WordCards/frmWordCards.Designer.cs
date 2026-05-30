@@ -36,11 +36,13 @@
             this.palMain = new System.Windows.Forms.Panel();
             this.txtHelp = new System.Windows.Forms.TextBox();
             this.btnAutoPlay = new System.Windows.Forms.Button();
+            this.picLogo = new System.Windows.Forms.PictureBox();
             this.txtExplain = new System.Windows.Forms.TextBox();
             this.txtPhonogram = new System.Windows.Forms.TextBox();
             this.txtWord = new System.Windows.Forms.TextBox();
             this.timPlayer = new System.Windows.Forms.Timer(this.components);
-            this.picLogo = new System.Windows.Forms.PictureBox();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.lblSearch = new System.Windows.Forms.Label();
             this.sssWord.SuspendLayout();
             this.palMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
@@ -81,6 +83,8 @@
             // palMain
             // 
             this.palMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(254)))), ((int)(((byte)(242)))));
+            this.palMain.Controls.Add(this.lblSearch);
+            this.palMain.Controls.Add(this.txtSearch);
             this.palMain.Controls.Add(this.txtHelp);
             this.palMain.Controls.Add(this.btnAutoPlay);
             this.palMain.Controls.Add(this.picLogo);
@@ -119,6 +123,17 @@
             this.btnAutoPlay.UseVisualStyleBackColor = true;
             this.btnAutoPlay.Click += new System.EventHandler(this.btnAutoPlay_Click);
             // 
+            // picLogo
+            // 
+            this.picLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.picLogo.Image = global::WordCards.Properties.Resources.WordCards_Logo;
+            this.picLogo.Location = new System.Drawing.Point(521, 29);
+            this.picLogo.Name = "picLogo";
+            this.picLogo.Size = new System.Drawing.Size(86, 104);
+            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picLogo.TabIndex = 3;
+            this.picLogo.TabStop = false;
+            // 
             // txtExplain
             // 
             this.txtExplain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -128,10 +143,10 @@
             this.txtExplain.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtExplain.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtExplain.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtExplain.Location = new System.Drawing.Point(23, 168);
+            this.txtExplain.Location = new System.Drawing.Point(23, 240);
             this.txtExplain.Multiline = true;
             this.txtExplain.Name = "txtExplain";
-            this.txtExplain.Size = new System.Drawing.Size(438, 238);
+            this.txtExplain.Size = new System.Drawing.Size(438, 164);
             this.txtExplain.TabIndex = 2;
             this.txtExplain.Text = "<aba-=abax-:一種計算工具>+<-us: calculus 小圓石>";
             // 
@@ -143,7 +158,7 @@
             this.txtPhonogram.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPhonogram.Font = new System.Drawing.Font("微軟正黑體", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtPhonogram.ForeColor = System.Drawing.Color.Green;
-            this.txtPhonogram.Location = new System.Drawing.Point(23, 103);
+            this.txtPhonogram.Location = new System.Drawing.Point(23, 177);
             this.txtPhonogram.Name = "txtPhonogram";
             this.txtPhonogram.Size = new System.Drawing.Size(438, 31);
             this.txtPhonogram.TabIndex = 1;
@@ -157,7 +172,7 @@
             this.txtWord.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtWord.Font = new System.Drawing.Font("微軟正黑體", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtWord.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txtWord.Location = new System.Drawing.Point(23, 15);
+            this.txtWord.Location = new System.Drawing.Point(23, 91);
             this.txtWord.Name = "txtWord";
             this.txtWord.Size = new System.Drawing.Size(438, 54);
             this.txtWord.TabIndex = 0;
@@ -168,16 +183,24 @@
             this.timPlayer.Interval = 2000;
             this.timPlayer.Tick += new System.EventHandler(this.timPlayer_Tick);
             // 
-            // picLogo
+            // txtSearch
             // 
-            this.picLogo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.picLogo.Image = global::WordCards.Properties.Resources.WordCards_Logo;
-            this.picLogo.Location = new System.Drawing.Point(521, 29);
-            this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(86, 104);
-            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picLogo.TabIndex = 3;
-            this.picLogo.TabStop = false;
+            this.txtSearch.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtSearch.Location = new System.Drawing.Point(96, 24);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(237, 34);
+            this.txtSearch.TabIndex = 6;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            // 
+            // lblSearch
+            // 
+            this.lblSearch.AutoSize = true;
+            this.lblSearch.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblSearch.Location = new System.Drawing.Point(18, 29);
+            this.lblSearch.Name = "lblSearch";
+            this.lblSearch.Size = new System.Drawing.Size(72, 25);
+            this.lblSearch.TabIndex = 7;
+            this.lblSearch.Text = "搜尋：";
             // 
             // frmWordCards
             // 
@@ -218,6 +241,8 @@
         private System.Windows.Forms.TextBox txtHelp;
         private System.Windows.Forms.Button btnAutoPlay;
         private System.Windows.Forms.Timer timPlayer;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Label lblSearch;
     }
 }
 
